@@ -1,12 +1,12 @@
-###
-# Nginx with Pagespeed
-###
+# ----------------------------------------------------------- #
+#  MOHSEN MOTTAGHI |   nginx with speedpage     |  Feb  2019  #
+# ----------------------------------------------------------- #
 
 FROM ubuntu:18.04
 
-MAINTAINER 蒼時弦也 "docker@frost.tw"
+MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
-# Version
+# Set Version of Tools
 ENV NGINX_VERSION 1.14.0
 ENV NPS_VERSION 1.13.35.2
 ENV OPENSSL_VERSION 1.0.2h
@@ -27,25 +27,25 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     apt-get build-dep nginx -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
-
+#
     # ===========
     # Build Nginx
     # ===========
-
+#
     # Create Module Directory
     mkdir ${MODULE_DIR} && \
-
+#
     # Downloading Source
     cd /usr/src && \
     wget -q http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
     tar xzf nginx-${NGINX_VERSION}.tar.gz && \
     rm -rf nginx-${NGINX_VERSION}.tar.gz && \
-
+#
     cd /usr/src && \
     wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
     tar xzf openssl-${OPENSSL_VERSION}.tar.gz && \
     rm -rf openssl-${OPENSSL_VERSION}.tar.gz && \
-
+#
     # Install Addational Module
     cd ${MODULE_DIR} && \
     wget -q https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-stable.tar.gz && \
@@ -55,7 +55,7 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz && \
     tar zxf ${NPS_VERSION}-x64.tar.gz && \
     rm -rf ${NPS_VERSION}-x64.tar.gz && \
-
+#
     # Compile Nginx
     cd /usr/src/nginx-${NGINX_VERSION} && \
     ./configure \
@@ -78,7 +78,7 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     --with-ipv6 \
     --with-openssl="../openssl-${OPENSSL_VERSION}" \
     --add-module=${MODULE_DIR}/incubator-pagespeed-ngx-${NPS_VERSION}-stable \
-
+#
     # Install Nginx
     && cd /usr/src/nginx-${NGINX_VERSION} \
     && make && make install  \
@@ -89,7 +89,7 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     && mkdir -p /var/cache/ngx_pagespeed \
     && install -m644 html/index.html /var/www/html  \
     && install -m644 html/50x.html /usr/share/nginx/html \
-
+#
     # Clear source code to reduce container size
     && rm -rf /usr/src/* \
     && mkdir -p ${NGINX_TEMPLATE_DIR} \
@@ -113,4 +113,3 @@ EXPOSE 80 443
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
-
