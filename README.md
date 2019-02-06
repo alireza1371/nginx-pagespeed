@@ -1,8 +1,14 @@
-Nginx Pagespeed[![](https://images.microbadger.com/badges/image/elct9620/nginx-pagespeed.svg)](https://microbadger.com/images/elct9620/nginx-pagespeed "Get your own image badge on microbadger.com")
-===
+# Nginx-Pagespeed
 
-Docker image include Nginx and Pagespeed module.
+This Docker image include Nginx , Pagespeed module and ...
 
+---  
+**Note**: Dockerfile Cloned from `elct9620`.
+
+**Version:**
+NGINX_VERSION 1.14.0
+NPS_VERSION 1.13.35.2
+OPENSSL_VERSION 1.0.2h
 
 Roadmap
 ---

@@ -1,4 +1,4 @@
-IMAGE_NAME=elct9620/nginx-pagespeed
+IMAGE_NAME=mohsenmottaghi/nginx-pagespeed
 CONTAINER_NAME=ngx-pagespeed
 
 all: build
