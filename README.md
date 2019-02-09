@@ -19,6 +19,44 @@ Roadmap
 - [ ] Add Laravel support
 - [ ] Add Let's Encrypt support with auto renew
 
+Compiled Modules
+---
+- http_ssl_module
+- http_realip_module
+- http_gunzip_module
+- http_gzip_static_module
+- http_secure_link_module
+- http_v2_module
+- threads
+- file-aio
+- ipv6
+- http-client-body-temp-path=/var/cache/nginx/client_temp
+- http-proxy-temp-path=/var/cache/nginx/proxy_temp
+- http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp
+- http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp
+- http-scgi-temp-path=/var/cache/nginx/scgi_temp
+- http_addition_module
+- http_sub_module
+- http_dav_module
+- http_flv_module
+- http_mp4_module
+- http_random_index_module
+- http_secure_link_module
+- http_stub_status_module
+- http_auth_request_module
+- http_xslt_module=dynamic
+- http_image_filter_module=dynamic
+- http_geoip_module=dynamic
+- stream
+- stream_ssl_module
+- stream_ssl_preread_module
+- stream_realip_module
+- stream_geoip_module=dynamic
+- http_slice_module
+- mail
+- mail_ssl_module
+- compat 
+
 Usage
 ---
 
