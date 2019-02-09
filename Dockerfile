@@ -78,7 +78,6 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     --with-ipv6 \
     --with-openssl="../openssl-${OPENSSL_VERSION}" \
     --add-module=${MODULE_DIR}/incubator-pagespeed-ngx-${NPS_VERSION}-stable \
-    # New MODULE
     --http-client-body-temp-path=/var/cache/nginx/client_temp \
     --http-proxy-temp-path=/var/cache/nginx/proxy_temp \
     --http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp \
