@@ -106,7 +106,7 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     --with-http_slice_module \
     --with-mail \
     --with-mail_ssl_module \
-    --with-compat
+    --with-compat \
 #
     # Install Nginx
     && cd /usr/src/nginx-${NGINX_VERSION} \
