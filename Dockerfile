@@ -7,9 +7,9 @@ FROM ubuntu:18.04
 MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
 # Set Version of Tools
-ENV NGINX_VERSION 1.14.0
-ENV NPS_VERSION 1.13.35.2
-ENV OPENSSL_VERSION 1.0.2h
+ENV NGINX_VERSION 1.15.10
+ENV NPS_VERSION 1.13.35.2-stable
+ENV OPENSSL_VERSION 1.1.0g
 
 # Setup Environment
 ENV MODULE_DIR /usr/src/nginx-modules
