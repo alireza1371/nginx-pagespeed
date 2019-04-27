@@ -7,7 +7,7 @@ FROM ubuntu:18.04
 MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
 # Set Version of Tools
-ENV NGINX_VERSION 1.15.10
+ENV NGINX_VERSION 1.15.12
 ENV NPS_VERSION 1.13.35.2-stable
 ENV OPENSSL_VERSION 1.1.0g
 
