@@ -44,7 +44,7 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     cd /usr/src && \
     wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
     tar xzf openssl-${OPENSSL_VERSION}.tar.gz && \
-    rm -rf openssl-${OPENSSL_VERSION}.tar.gz && \
+    rm -rf openssl-${OPENSSL_VERSION}.tar.gz 
 #
     # Install Addational Module
 RUN cd ${MODULE_DIR} 
