@@ -6,9 +6,9 @@ FROM ubuntu:18.04
 
 MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
-# Set Version of Tools
+# Set Version of Tools - Stable Version
 ENV NGINX_VERSION 1.15.12
-ENV NPS_VERSION 1.13.35.2-stable
+ENV NPS_VERSION 1.13.35.2
 ENV OPENSSL_VERSION 1.1.0g
 
 # Setup Environment
@@ -41,20 +41,20 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     tar xzf nginx-${NGINX_VERSION}.tar.gz && \
     rm -rf nginx-${NGINX_VERSION}.tar.gz && \
 #
-    cd /usr/src && \
+     cd /usr/src && \
     wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
     tar xzf openssl-${OPENSSL_VERSION}.tar.gz && \
-    rm -rf openssl-${OPENSSL_VERSION}.tar.gz 
+    rm -rf openssl-${OPENSSL_VERSION}.tar.gz && \
 #
     # Install Addational Module
-RUN cd ${MODULE_DIR} 
-RUN wget -q https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-stable.tar.gz 
-RUN tar zxf v${NPS_VERSION}-stable.tar.gz 
-RUN rm -rf v${NPS_VERSION}-stable.tar.gz 
-RUN cd incubator-pagespeed-ngx-${NPS_VERSION}-stable/ 
-RUN wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz 
-RUN tar zxf ${NPS_VERSION}-x64.tar.gz 
-RUN rm -rf ${NPS_VERSION}-x64.tar.gz 
+    cd ${MODULE_DIR} && \
+    wget -q https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-stable.tar.gz && \
+    tar zxf v${NPS_VERSION}-stable.tar.gz && \
+    rm -rf v${NPS_VERSION}-stable.tar.gz && \
+    cd incubator-pagespeed-ngx-${NPS_VERSION}-stable/ && \
+    wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz && \
+    tar zxf ${NPS_VERSION}-x64.tar.gz && \
+    rm -rf ${NPS_VERSION}-x64.tar.gz 
 #
     # Compile Nginx
 RUN cd /usr/src/nginx-${NGINX_VERSION} && \
