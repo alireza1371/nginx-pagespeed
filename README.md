@@ -3,7 +3,7 @@
 This Docker image include Nginx , Pagespeed module and ...
 
 ---  
-**Note**: Dockerfile Cloned from `elct9620`.
+**Note**: Dockerfile Forked by me from `elct9620`.
 
 **Version:**
 NGINX_VERSION 1.14.0
