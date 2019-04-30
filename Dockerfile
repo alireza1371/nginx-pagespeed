@@ -25,40 +25,39 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     apt-get update && \
     apt-get install wget uuid-dev -y && \
     apt-get build-dep nginx -y && \
-    # apt-get install apt-utils -y && \
-    apt-get clean
-    # rm -rf /var/lib/apt/lists/* && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
 #
     # ===========
     # Build Nginx
     # ===========
 #
     # Create Module Directory
-RUN    mkdir ${MODULE_DIR} && \
+    mkdir ${MODULE_DIR} 
 #
     # Downloading Source
-    cd /usr/src && \
+RUN cd /usr/src && \
     wget -q http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz && \
     tar xzf nginx-${NGINX_VERSION}.tar.gz && \
-    rm -rf nginx-${NGINX_VERSION}.tar.gz && \
+    rm -rf nginx-${NGINX_VERSION}.tar.gz 
 #
-    cd /usr/src && \
+RUN cd /usr/src && \
     wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
     tar xzf openssl-${OPENSSL_VERSION}.tar.gz && \
-    rm -rf openssl-${OPENSSL_VERSION}.tar.gz && \
+    rm -rf openssl-${OPENSSL_VERSION}.tar.gz
 #
     # Install Addational Module
-    cd ${MODULE_DIR} && \
+RUN cd ${MODULE_DIR} && \
     wget -q https://github.com/apache/incubator-pagespeed-ngx/archive/v${NPS_VERSION}-stable.tar.gz && \
     tar zxf v${NPS_VERSION}-stable.tar.gz && \
     rm -rf v${NPS_VERSION}-stable.tar.gz && \
     cd incubator-pagespeed-ngx-${NPS_VERSION}-stable/ && \
     wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz && \
     tar zxf ${NPS_VERSION}-x64.tar.gz && \
-    rm -rf ${NPS_VERSION}-x64.tar.gz && \
+    rm -rf ${NPS_VERSION}-x64.tar.gz 
 #
     # Compile Nginx
-    cd /usr/src/nginx-${NGINX_VERSION} && \
+RUN cd /usr/src/nginx-${NGINX_VERSION} && \
     ./configure \
     --prefix=/etc/nginx \
     --sbin-path=/usr/sbin/nginx \
