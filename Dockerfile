@@ -25,16 +25,16 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     apt-get update && \
     apt-get install wget uuid-dev -y && \
     apt-get build-dep nginx -y && \
-    apt-get install apt-utils && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
+    # apt-get install apt-utils -y && \
+    apt-get clean
+    # rm -rf /var/lib/apt/lists/* && \
 #
     # ===========
     # Build Nginx
     # ===========
 #
     # Create Module Directory
-    mkdir ${MODULE_DIR} && \
+RUN    mkdir ${MODULE_DIR} && \
 #
     # Downloading Source
     cd /usr/src && \
