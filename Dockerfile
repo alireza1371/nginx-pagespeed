@@ -2,7 +2,7 @@
 #  MOHSEN MOTTAGHI |   nginx with speedpage     |  Feb  2019  #
 # ----------------------------------------------------------- #
 
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
 MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
