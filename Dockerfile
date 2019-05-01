@@ -22,16 +22,30 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install Build Tools & Dependence
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 # RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list
-RUN echo 'deb http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list && \
-    echo 'deb http://deb.debian.org/debian-security/ stretch/updates main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://deb.debian.org/debian-security/ stretch/updates main' >> /etc/apt/sources.list && \
-    echo 'deb http://deb.debian.org/debian stretch-updates main' >> /etc/apt/sources.list && \
-    echo 'deb-src http://deb.debian.org/debian stretch-updates main' >> /etc/apt/sources.list
-
 RUN apt-get update && \
     apt-get install wget uuid-dev -y && \
-    apt-get build-dep nginx -y && \
+    # apt-get build-dep nginx -y && \
+    apt-get install autotools-dev binutils bsdmainutils build-essential bzip2 cpp cpp-5 \
+    debhelper dh-strip-nondeterminism dh-systemd dpkg-dev file fontconfig-config \
+    fonts-dejavu-core g++ g++-5 gcc gcc-5 geoip-bin gettext gettext-base \
+    groff-base icu-devtools intltool-debian libarchive-zip-perl libasan2 \
+    libasprintf0v5 libatomic1 libcc1-0 libcilkrts5 libcroco3 libdpkg-perl \
+    libexpat1 libexpat1-dev libffi6 libfile-stripnondeterminism-perl \
+    libfontconfig1 libfontconfig1-dev libfreetype6 libfreetype6-dev libgcc-5-dev \
+    libgd-dev libgd3 libgdbm3 libgeoip-dev libgeoip1 libglib2.0-0 libgmp10 \
+    libgomp1 libice-dev libice6 libicu-dev libicu55 libisl15 libitm1 libjbig-dev \
+    libjbig0 libjpeg-dev libjpeg-turbo8 libjpeg-turbo8-dev libjpeg8 libjpeg8-dev \
+    liblsan0 libluajit-5.1-2 libluajit-5.1-common libluajit-5.1-dev liblzma-dev \
+    libmagic1 libmhash-dev libmhash2 libmpc3 libmpfr4 libmpx0 libpam0g-dev \
+    libpcre16-3 libpcre3-dev libpcre32-3 libpcrecpp0v5 libperl-dev libperl5.22 \
+    libpipeline1 libpng12-0 libpng12-dev libpthread-stubs0-dev libquadmath0 \
+    libsm-dev libsm6 libssl-dev libstdc++-5-dev libtiff5 libtiff5-dev libtiffxx5 \
+    libtimedate-perl libtsan0 libubsan0 libunistring0 libvpx-dev libvpx3 \
+    libx11-6 libx11-data libx11-dev libxau-dev libxau6 libxcb1 libxcb1-dev \
+    libxdmcp-dev libxdmcp6 libxml2 libxml2-dev libxpm-dev libxpm4 libxslt1-dev \
+    libxslt1.1 libxt-dev libxt6 make man-db patch perl perl-modules-5.22 \
+    pkg-config po-debconf ucf x11-common x11proto-core-dev x11proto-input-dev \
+    x11proto-kb-dev xorg-sgml-doctools xtrans-dev xz-utils zlib1g-dev -y  && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
 #
