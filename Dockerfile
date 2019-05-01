@@ -41,8 +41,8 @@ RUN cd /usr/src && \
     tar xzf nginx-${NGINX_VERSION}.tar.gz && \
     rm -rf nginx-${NGINX_VERSION}.tar.gz
 #
-     cd /usr/src && \
-RUN wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
+RUN cd /usr/src && \
+    wget -q http://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz && \
     tar xzf openssl-${OPENSSL_VERSION}.tar.gz && \
     rm -rf openssl-${OPENSSL_VERSION}.tar.gz
 #
