@@ -3,12 +3,19 @@
 This Docker image include Nginx , Pagespeed module and ...
 
 ---  
-**Note**: Dockerfile Cloned from `elct9620`.
+**Note**: Dockerfile Cloned by me from `elct9620`.
+
+**Docker Image Tags:**
+- latest
+- ubuntu-18-04
+- ubuntu-18-10
+- ubuntu-19-04
+- debian-latest
 
 **Version:**
-NGINX_VERSION 1.14.0
-NPS_VERSION 1.13.35.2
-OPENSSL_VERSION 1.0.2h
+NGINX_VERSION 1.15.12
+NPS_VERSION 1.13.35.2-stable
+OPENSSL_VERSION 1.1.0g
 
 Roadmap
 ---
