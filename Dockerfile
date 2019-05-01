@@ -22,6 +22,13 @@ ENV DEBIAN_FRONTEND noninteractive
 # Install Build Tools & Dependence
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
 # RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list
+RUN echo 'deb http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://deb.debian.org/debian stretch main' >> /etc/apt/sources.list && \
+    echo 'deb http://deb.debian.org/debian-security/ stretch/updates main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://deb.debian.org/debian-security/ stretch/updates main' >> /etc/apt/sources.list && \
+    echo 'deb http://deb.debian.org/debian stretch-updates main' >> /etc/apt/sources.list && \
+    echo 'deb-src http://deb.debian.org/debian stretch-updates main' >> /etc/apt/sources.list
+
 RUN apt-get update && \
     apt-get install wget uuid-dev -y && \
     apt-get build-dep nginx -y && \
