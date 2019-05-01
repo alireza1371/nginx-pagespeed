@@ -21,8 +21,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install Build Tools & Dependence
 RUN echo "#!/bin/sh\nexit 0" > /usr/sbin/policy-rc.d
-RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
-    apt-get update && \
+# RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list
+RUN apt-get update && \
     apt-get install wget uuid-dev -y && \
     apt-get build-dep nginx -y && \
     apt-get clean && \
