@@ -60,7 +60,7 @@ RUN cd ${MODULE_DIR} && \
     tar zxf v${NPS_VERSION}-stable.tar.gz && \
     rm -rf v${NPS_VERSION}-stable.tar.gz
 #
-RUN cd ${MODULE_DIR}}/incubator-pagespeed-ngx-${NPS_VERSION}-stable/ && \
+RUN cd ${MODULE_DIR}/incubator-pagespeed-ngx-${NPS_VERSION}-stable/ && \
     wget -q https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}-x64.tar.gz && \
     tar zxf ${NPS_VERSION}-x64.tar.gz && \
     rm -rf ${NPS_VERSION}-x64.tar.gz 
