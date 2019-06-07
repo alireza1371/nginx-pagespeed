@@ -7,10 +7,13 @@ This Docker image include Nginx , Pagespeed module and ...
 
 **Docker Image Tags:**
 - latest
+- ubuntu-16-04
 - ubuntu-18-04
 - ubuntu-18-10
 - ubuntu-19-04
 - debian-latest
+- debian-stretch
+- debian-jessie
 
 **Version:**
 NGINX_VERSION 1.15.12
