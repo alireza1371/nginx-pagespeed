@@ -2,7 +2,7 @@
 #  MOHSEN MOTTAGHI |   nginx with speedpage     |  Feb  2019  #
 # ----------------------------------------------------------- #
 
-FROM debian:latest
+FROM debian:buster
 
 MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
 
