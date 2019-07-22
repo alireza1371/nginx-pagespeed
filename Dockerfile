@@ -4,7 +4,7 @@
 
 FROM ubuntu:18.04
 
-MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
+LABEL maintainer="co.mohsen.docker.registry"
 
 # Set Version of Tools - Stable Version
 ENV NGINX_VERSION 1.15.12
@@ -119,7 +119,6 @@ RUN sed -i -- "s/# deb-src/deb-src/g" /etc/apt/sources.list && \
     && install -m644 html/50x.html /usr/share/nginx/html \
 #
     # Clear source code to reduce container size
-    && cd / \
     && rm -rf /usr/src/* \
     && mkdir -p ${NGINX_TEMPLATE_DIR} \
     && mkdir -p ${NGINX_RUNTIME_DIR} \
