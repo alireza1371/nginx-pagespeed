@@ -1,4 +1,5 @@
 # Nginx-Pagespeed
+![Generic badge](https://img.shields.io/badge/Dockerfile-Pass-<COLOR>.svg) ![Generic badge](https://img.shields.io/badge/Build-Pass-<COLOR>.svg) ![Generic badge](https://img.shields.io/badge/Dockerfile_Layer-22-blue.svg) ![Generic badge](https://img.shields.io/badge/Dockerfile_Image_Size-~600_MB-blue.svg) ![Generic badge](https://img.shields.io/badge/Dockerfile_Auto_Build-Yes-<COLOR>.svg) ![Generic badge](https://img.shields.io/badge/Maintainer-Mohsen_Mottaghi-yellow.svg)
 
 This Docker image include Nginx , Pagespeed module and ...
 
@@ -16,9 +17,10 @@ This Docker image include Nginx , Pagespeed module and ...
 - debian-jessie
 
 **Version:**
-NGINX_VERSION 1.15.12
-NPS_VERSION 1.13.35.2-stable
-OPENSSL_VERSION 1.1.0g
+
+* NGINX_VERSION 1.15.12
+* NPS_VERSION 1.13.35.2-stable
+* OPENSSL_VERSION 1.1.0g
 
 Roadmap
 ---
@@ -121,5 +123,3 @@ Below is current supported options.
 This image also provide some extra config to fast setup some popular Framework/CMS.
 
 - `WORDPRESS_ADDON` When set to `yes` will change config to add extra config to let `WordPress` work correctly.
-
-
