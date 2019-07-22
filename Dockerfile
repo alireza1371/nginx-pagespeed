@@ -4,7 +4,7 @@
 
 FROM debian:buster
 
-MAINTAINER Mohsen Mottaghi "mohsenmottaghi@outlook.com"
+LABEL maintainer="co.mohsen.docker.registry"
 
 # Set Version of Tools - Stable Version
 ENV NGINX_VERSION 1.15.12
@@ -131,7 +131,10 @@ RUN cd /usr/src/nginx-${NGINX_VERSION} && \
     && rm -rf /usr/src/* \
     && mkdir -p ${NGINX_TEMPLATE_DIR} \
     && mkdir -p ${NGINX_RUNTIME_DIR} \
-    && mkdir -p ${SSL_CERTS_DIR}
+    && mkdir -p ${SSL_CERTS_DIR} \
+#
+    # clean packages to reduce container size
+    && apt purge wget build-essential --auto-remove -y
 
 # Forward requests and errors to docker logs
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
